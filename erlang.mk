@@ -18,7 +18,7 @@ ERLANG_MK_FILENAME := $(realpath $(lastword $(MAKEFILE_LIST)))
 export ERLANG_MK_FILENAME
 
 ERLANG_MK_VERSION = 2018.06.21-9-gdbc51f9
-ERLANG_MK_WITHOUT = 
+ERLANG_MK_WITHOUT =
 
 # Make 3.81 and 3.82 are deprecated.
 
@@ -5449,8 +5449,8 @@ try
 		})
 	end || F <- [$(shell echo $(addprefix $(comma)\",$(addsuffix \",$1)) | sed 's/^.//')]],
 	halt(0)
-catch C:E ->
-	io:format("Exception ~p:~p~nStacktrace: ~p~n", [C, E, erlang:get_stacktrace()]),
+catch C:E:S ->
+	io:format("Exception ~p:~p~nStacktrace: ~p~n", [C, E, S]),
 	halt(1)
 end.
 endef
@@ -6678,8 +6678,8 @@ define proper_check.erl
 	of
 		true -> halt(0);
 		_ -> halt(1)
-	catch error:undef ->
-		io:format("Undefined property or module?~n~p~n", [erlang:get_stacktrace()]),
+	catch error:undef:S ->
+		io:format("Undefined property or module?~n~p~n", [S]),
 		halt(0)
 	end.
 endef
@@ -6931,8 +6931,8 @@ define triq_check.erl
 	of
 		true -> halt(0);
 		_ -> halt(1)
-	catch error:undef ->
-		io:format("Undefined property or module?~n~p~n", [erlang:get_stacktrace()]),
+	catch error:undef:S ->
+		io:format("Undefined property or module?~n~p~n", [S]),
 		halt(0)
 	end.
 endef

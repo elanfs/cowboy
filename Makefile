@@ -2,7 +2,7 @@
 
 PROJECT = cowboy
 PROJECT_DESCRIPTION = Small, fast, modern HTTP server.
-PROJECT_VERSION = 2.6.3
+PROJECT_VERSION = 2.6.4
 PROJECT_REGISTERED = cowboy_clock
 
 # Options.
@@ -29,10 +29,10 @@ dep_gun = git https://github.com/ninenines/gun 1.2.0
 dep_ci.erlang.mk = git https://github.com/ninenines/ci.erlang.mk master
 DEP_EARLY_PLUGINS = ci.erlang.mk
 
-AUTO_CI_OTP ?= OTP-19+
+AUTO_CI_OTP ?= OTP-21+
 AUTO_CI_HIPE ?= OTP-LATEST
 # AUTO_CI_ERLLVM ?= OTP-LATEST
-AUTO_CI_WINDOWS ?= OTP-19+
+AUTO_CI_WINDOWS ?= OTP-21+
 
 # Standard targets.
 
